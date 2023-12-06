@@ -1,0 +1,38 @@
+@import "styles/_variables";
+@import "styles/_mixins";
+@import "styles/button";
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  // color: $dark;
+  // background-color: $light;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+p {
+  font-size: 12px;
+  font-weight: 400;
+}
