@@ -31,8 +31,12 @@ const MONGO_URL = process.env.MONGO_URL;
 
 console.log('MongoDB URL:', process.env.MONGO_URL);
 
-
 mongoose.Promise = Promise;
+
+if (!MONGO_URL) {
+  throw new Error("Missing environment variable: MONGO_URL");
+}
+
 mongoose.connect(MONGO_URL);
 mongoose.connection.on("error", (error: Error) => console.log(error))
 
