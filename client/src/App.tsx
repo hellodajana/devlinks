@@ -1,19 +1,28 @@
 import { useState } from "react";
 
-import Button from "./elements/Button";
+import Input from "./elements/Input";
+import Link from "./assets/icon-link.svg";
 
-function App() {
-  const [count, setCount] = useState(0);
+const App = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
 
   return (
-    <>
-      <Button
-        text="Click me"
-        callback={() => setCount(count + 1)}
-        className="secondary"
+    <div>
+      <Input
+        name="url"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Enter a URL"
+        type="text"
+        error="This is an error"
+        image={<img src={Link} alt="Link Icon" />}
       />
-    </>
+    </div>
   );
-}
+};
 
 export default App;
