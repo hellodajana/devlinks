@@ -2,6 +2,7 @@
 @import "styles/_mixins";
 @import "styles/button";
 @import "styles/input";
+@import "styles/dropdown";
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap");
 
 * {
@@ -36,4 +37,10 @@ h3 {
 p {
   font-size: 12px;
   font-weight: 400;
+}
+
+.reset-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
