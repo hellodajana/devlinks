@@ -1,0 +1,21 @@
+.auth-container {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: $white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 476px;
+  height: 482px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.small-text {
+  font-size: 12px;
+}

@@ -1,11 +1,16 @@
-import Dropdown from "./elements/Dropdown";
-import dropdownOne from "./helpers/dropdownFields";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import AuthLayout from "./layouts/AuthLayout";
 
 const App = () => {
   return (
-    <div>
-      <Dropdown title="Dropdown" items={dropdownOne} onSelect={() => {}} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/auth/" element={<AuthLayout />}>
+          <Route path="login" element={<Login />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 };
 

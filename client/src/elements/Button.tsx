@@ -2,14 +2,15 @@ import { FC } from "react";
 
 interface ButtonProps {
   text: string;
-  callback: () => void;
+  callback?: () => void;
   className: "primary" | "secondary";
   disabled?: boolean;
+  type: "submit" | "button";
 }
 
-const Button: FC<ButtonProps> = ({ text, callback, className }) => {
+const Button: FC<ButtonProps> = ({ text, callback, className, type }) => {
   return (
-    <button className={className} onClick={callback}>
+    <button type={type} className={className} onClick={callback}>
       {text}
     </button>
   );

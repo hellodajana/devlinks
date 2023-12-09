@@ -58,6 +58,12 @@
   }
 }
 
+.icon:hover {
+  color: red;
+  fill: red;
+  stroke: red;
+}
+
 .breakpoint {
   border: 0.5px solid $medium-gray;
 }
