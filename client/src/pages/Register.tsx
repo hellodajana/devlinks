@@ -40,7 +40,7 @@ const Register = () => {
 
   useEffect(() => {
     if (success) {
-      navigate("login");
+      navigate("/auth/login");
     }
   }, [success, navigate]);
 
@@ -84,7 +84,7 @@ const Register = () => {
           image={<img src={Password} alt="password" />}
         />
         <p>Password must contain at least 8 characters.</p>
-        <Button type="submit" text="Log In" className="primary" />
+        <Button type="submit" text="Create new account" className="primary" />
       </form>
       <NavigationButton
         questionText="Already have an account? "
