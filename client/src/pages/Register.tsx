@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import authservice from "../services/authservice";
 import Mail from "../assets/icon-email.svg";
 import Password from "../assets/icon-password.svg";
-import Input from "../elements/Input";
 import Button from "../elements/Button";
+import InputField from "../components/auth/InputField";
+import NavigationButton from "../components/auth/NavigationButton";
 
 const Register = () => {
   const [email, setEmail] = useState<string>("");
@@ -52,74 +53,44 @@ const Register = () => {
         </h3>
       </div>
       <form className="auth-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label
-            className={`light-text small-text ${emailFailed ? "red-text" : ""}`}
-            htmlFor="email"
-          >
-            Email address
-          </label>
-          <Input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="e.g. alex@email.com"
-            name="email"
-            error={emailFailed}
-            image={<img src={Mail} alt="mail" />}
-          />
-        </div>
-        <div className="form-group">
-          <label
-            className={`light-text small-text ${
-              registrationFailed ? "red-text" : ""
-            }`}
-            htmlFor="password"
-          >
-            Create password
-          </label>
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="At least 8 characters"
-            name="password"
-            error={registrationFailed}
-            image={<img src={Password} alt="password" />}
-          />
-        </div>
-        <div className="form-group">
-          <label
-            className={`light-text small-text ${
-              registrationFailed ? "red-text" : ""
-            }`}
-            htmlFor="password"
-          >
-            Confirm password
-          </label>
-          <Input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="At least 8 characters"
-            name="password"
-            error={registrationFailed}
-            image={<img src={Password} alt="password" />}
-          />
-        </div>
-        <p>Password must contain at least 8 characters</p>
+        <InputField
+          label="Email address"
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="e.g. alex@email.com"
+          name="email"
+          error={emailFailed}
+          image={<img src={Mail} alt="mail" />}
+        />
+        <InputField
+          label="Create password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="At least 8 characters"
+          name="password"
+          error={registrationFailed}
+          image={<img src={Password} alt="password" />}
+        />
+        <InputField
+          label="Confirm password"
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder="At least 8 characters"
+          name="password"
+          error={registrationFailed}
+          image={<img src={Password} alt="password" />}
+        />
+        <p>Password must contain at least 8 characters.</p>
         <Button type="submit" text="Log In" className="primary" />
       </form>
-      <span className="row-container">
-        <h3>Already have an account? </h3>
-        <button
-          className="reset-button navigate-button"
-          type="button"
-          onClick={() => navigate("/auth/login")}
-        >
-          Login
-        </button>
-      </span>
+      <NavigationButton
+        questionText="Already have an account? "
+        btnText="Login"
+        link="/auth/login"
+      />
     </div>
   );
 };
