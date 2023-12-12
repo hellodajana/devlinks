@@ -1,11 +1,16 @@
-import React from "react";
+import GettingStarted from "../components/GettingStarted";
 import PhoneShape from "../components/PhoneShape";
 
 const Home = () => {
   return (
-    <div className="space">
-      <PhoneShape />
-    </div>
+    <main className="main-container">
+      <div className="card">
+        <PhoneShape />
+      </div>
+      <div className="card">
+        <GettingStarted />
+      </div>
+    </main>
   );
 };
 

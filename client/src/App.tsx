@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import AuthLayout from "./layouts/AuthLayout";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import HeaderLayout from "./layouts/HeaderLayout";
 
 const App = () => {
   return (
@@ -12,7 +13,9 @@ const App = () => {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
-        <Route path="/" element={<Home />} />
+        <Route element={<HeaderLayout />}>
+          <Route path="/" element={<Home />} />
+        </Route>
       </Routes>
     </Router>
   );

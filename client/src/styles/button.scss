@@ -20,7 +20,6 @@
 
 .secondary {
   border: 1px solid $purple;
-  width: 227px;
   padding: 11px 27px;
   color: $purple;
   border-radius: 8px;
@@ -35,5 +34,27 @@
 
   &:disabled {
     opacity: 0.25;
+  }
+}
+
+.small-btn {
+  display: flex;
+  align-items: center;
+  padding: 11px 27px;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
+  color: gray;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    color: purple;
+  }
+
+  &:active {
+    background-color: $lavander;
+    color: purple;
   }
 }

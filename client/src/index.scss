@@ -5,6 +5,9 @@
 @import "styles/dropdown";
 @import "styles/auth";
 @import "styles/phoneshape";
+@import "styles/navbar";
+@import "styles/home";
+@import "styles/gettingstarted";
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap");
 
 * {
@@ -18,7 +21,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   // color: $dark;
-  // background-color: $light;
+  background-color: $light-gray;
 }
 
 h1 {
@@ -91,9 +94,4 @@ p {
 
 .red-text {
   color: $red;
-}
-
-// remove later
-.space {
-  padding: 20px;
 }

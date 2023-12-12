@@ -1,0 +1,19 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 16px 24px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background-color: $white;
+}
+
+.small-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.main-margin {
+  margin: 24px;
+}
