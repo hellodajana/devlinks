@@ -1,0 +1,96 @@
+$phone-border: 50px;
+$border-color: $gray;
+$phone-item: #eee;
+$background-color: $white;
+$notch-width: 140px;
+$notch-height: 50px;
+
+.outer-shape {
+  width: 307px;
+  height: 631px;
+  border: 1px solid $border-color;
+  border-radius: $phone-border;
+  padding: 11px;
+}
+
+.inner-shape {
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
+  border-radius: $phone-border;
+  position: relative;
+  overflow: hidden;
+
+  .shape-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 23px;
+    position: relative;
+    border-radius: $phone-border;
+    box-sizing: border-box;
+    border: 1px solid $border-color;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -($notch-height / 2);
+      left: 50%;
+      width: $notch-width;
+      height: $notch-height;
+      background-color: $background-color;
+      transform: translateX(-50%);
+      border-radius: 0 0 20px 20px;
+
+      border: 1px solid $border-color;
+      border-top: 1px solid transparent;
+    }
+  }
+
+  .shape-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+
+    &__pic {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: $phone-item;
+      margin-bottom: 25px;
+      margin-bottom: 13px;
+    }
+
+    &__name {
+      width: 160px;
+      height: 16px;
+      border-radius: 104px;
+      background: $phone-item;
+      margin-bottom: 13px;
+    }
+
+    &__handle {
+      width: 72px;
+      height: 8px;
+      border-radius: 104px;
+      background: $phone-item;
+    }
+  }
+
+  .shape-body {
+    flex-grow: 1;
+  }
+
+  .shape-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__items {
+      height: 44px; // Adjust height as necessary
+      border-radius: 8px;
+      background: $phone-item;
+    }
+  }
+}
