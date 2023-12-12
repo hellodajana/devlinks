@@ -9,7 +9,7 @@ This is a solution to the [Link-sharing app challenge on Frontend Mentor](https:
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
-  - [Technologies Used](#techologies-used)
+  - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
@@ -42,7 +42,7 @@ Users should be able to:
 
 ## My process
 
-## Technologies Used
+### Built with
 
 ### Frontend
 
