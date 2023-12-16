@@ -1,13 +1,41 @@
 .main-container {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  gap: 24px;
+  grid-template-rows: 5fr 1fr;
+  grid-template-areas: "card1 card2" "card1 card3";
+  column-gap: 2rem;
+  row-gap: 0.5rem;
+  height: 89vh;
 
   .card {
     background-color: $white;
-    border-radius: 12px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 40px;
+  }
+
+  .card-1 {
+    grid-area: card1;
+    border-radius: 12px;
+  }
+
+  .card-2 {
+    grid-area: card2;
+    border-radius: 12px 12px 0 0;
+
+    button {
+      align-self: stretch;
+    }
+  }
+
+  .card-3 {
+    grid-area: card3;
+    border-radius: 0 0 12px 12px;
+
+    button {
+      align-self: flex-end;
+    }
   }
 }

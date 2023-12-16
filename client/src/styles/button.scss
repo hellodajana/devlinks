@@ -50,11 +50,11 @@
   cursor: pointer;
 
   &:hover {
-    color: purple;
+    color: $purple;
   }
 
   &:active {
-    background-color: $lavander;
-    color: purple;
+    background-color: $light-lavander;
+    color: $purple;
   }
 }

@@ -7,6 +7,8 @@
   background-color: $light-gray;
   padding: 20px;
   margin: 24px 0 40px 0;
+  border-radius: 12px;
+  height: 100%;
 }
 
 .text-wrapper {
@@ -14,10 +16,4 @@
   justify-self: flex-start;
   gap: 1rem;
   margin-bottom: 40px;
-  height: 90%;
-}
-
-.button-wrapper {
-  margin: 24px 0;
-  text-align: right;
 }
