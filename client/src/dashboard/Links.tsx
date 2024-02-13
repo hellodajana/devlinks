@@ -30,6 +30,7 @@ const Links = () => {
           className="secondary"
           type="button"
           onClick={handleCustomizeLink}
+          Image={null}
         />
       </div>
       {!showLinks ? <GettingStarted /> : linkComponents}

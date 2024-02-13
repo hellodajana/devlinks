@@ -1,19 +1,28 @@
 .get-started-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 2rem;
   align-items: center;
-  justify-content: center;
   background-color: $light-gray;
-  padding: 20px;
-  margin: 24px 0 40px 0;
+  padding: 1rem;
   border-radius: 12px;
-  height: 100%;
+
+  p {
+    text-align: center;
+    width: 60%;
+  }
 }
 
 .text-wrapper {
   align-self: flex-start;
   justify-self: flex-start;
   gap: 1rem;
-  margin-bottom: 40px;
+}
+
+.get-started-img {
+  width: auto;
+
+  @include phone {
+    height: 75px;
+  }
 }

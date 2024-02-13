@@ -1,8 +1,5 @@
 .main-container {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 5fr 1fr;
-  grid-template-areas: "card1 card2" "card1 card3";
+  display: flex;
   column-gap: 2rem;
   row-gap: 0.5rem;
 
@@ -10,15 +7,25 @@
     display: block;
   }
 
+  @include tablet {
+    display: block;
+  }
+
   .card {
     background-color: $white;
-    padding: 40px;
+    min-height: 700px;
+    border-radius: 12px;
+  }
+
+  .card-links {
+    display: grid;
+    grid-template-rows: 4fr 0 0.5fr;
+    gap: 0.5rem;
+    width: 100%;
   }
 
   .card-1 {
-    grid-area: card1;
-    border-radius: 12px;
-
+    padding: 40px;
     @include phone {
       display: none;
     }
@@ -29,19 +36,34 @@
   }
 
   .card-2 {
-    grid-area: card2;
-    border-radius: 12px 12px 0 0;
+    padding: 40px;
+
+    @include phone {
+      padding: 24px;
+    }
+
     button {
       width: 100%;
+      margin: 24px 0 16px 0;
     }
   }
 
   .card-3 {
-    grid-area: card3;
-    border-radius: 0 0 12px 12px;
+    position: relative;
+
+    @include phone {
+      margin: 0 24px;
+    }
 
     button {
-      left: 0;
+      width: 20%;
+      position: absolute;
+      right: 0;
+      margin: 1rem;
+      @include phone {
+        width: 100%;
+        margin: 0;
+      }
     }
   }
 }

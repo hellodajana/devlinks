@@ -8,11 +8,14 @@ const Home = () => {
       <div className="card card-1">
         <PhoneShape />
       </div>
-      <div className="card card-2">
-        <Links />
-      </div>
-      <div className="card card-3">
-        <Button text="Save" className="secondary" type="button" />
+      <div className="card card-links">
+        <div className="card-2">
+          <Links />
+        </div>
+        <hr className="breakpoint" />
+        <div className="card-3">
+          <Button text="Save" className="primary" type="button" Image={null} />
+        </div>
       </div>
     </main>
   );

@@ -1,6 +1,6 @@
 const CustomizeLinks = () => {
   return (
-    <div className="customize-links">
+    <div className="get-started-wrapper">
       <h2>Customize Links</h2>
     </div>
   );
