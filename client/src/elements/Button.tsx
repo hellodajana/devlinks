@@ -3,7 +3,7 @@ import { FC, ReactElement } from "react";
 interface ButtonProps {
   text: string;
   onClick?: () => void;
-  className: "primary" | "secondary";
+  className: "primary" | "secondary" | "text-btn";
   disabled?: boolean;
   type: "submit" | "button";
   Image: ReactElement | null;

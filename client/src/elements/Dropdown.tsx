@@ -1,11 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { DropdownOption } from "../types/types";
-import Link from "../assets/icon-link.svg";
 import ArrowDown from "../assets/icon-chevron-down.svg";
 
 interface DropdownProps {
-  title: string;
-  items: Array<DropdownOption>;
+  title: DropdownOption;
+  items: DropdownOption[];
   selectedItem?: DropdownOption | null;
   onSelect: (item: DropdownOption) => void;
 }
@@ -56,8 +55,8 @@ const Dropdown: React.FC<DropdownProps> = ({
         type="button"
         className={`dropdown-button ${showDropdown ? "button-active" : ""}`}
       >
-        <img src={Link} alt="Link" />
-        {selectedItem ? selectedItem.name : title}
+        <img src={selectedItem ? selectedItem.image : title.image} />
+        {selectedItem ? selectedItem.name : title.name}
         <img
           className={`dropdown-button__arrow ${
             showDropdown ? "arrow-active" : ""

@@ -72,3 +72,13 @@
     height: 16px;
   }
 }
+
+.text-btn {
+  @include reset-btn;
+  color: $gray;
+  cursor: pointer;
+
+  &:hover {
+    color: $red;
+  }
+}

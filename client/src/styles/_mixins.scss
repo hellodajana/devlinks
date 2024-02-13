@@ -19,3 +19,9 @@ $breakpoint-desktop: 1024px;
     @content;
   }
 }
+
+@mixin reset-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}

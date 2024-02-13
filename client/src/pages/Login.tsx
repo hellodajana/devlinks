@@ -64,7 +64,7 @@ const Login = () => {
           error={loginFailed}
           image={<img src={Password} alt="password" />}
         />
-        <Button type="submit" text="Log In" className="primary" />
+        <Button type="submit" text="Log In" className="primary" Image={null} />
       </form>
       <NavigationButton
         questionText="Don't have an account?"
