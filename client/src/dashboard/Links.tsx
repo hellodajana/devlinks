@@ -5,9 +5,7 @@ import CustomizeLinks from "../components/CustomizeLinks";
 
 const Links = () => {
   const [showLinks, setShowLinks] = useState<boolean>(false);
-  const [linkComponents, setLinkComponents] = useState<ReactNode[]>([
-    <CustomizeLinks key={0} />,
-  ]);
+  const [linkComponents, setLinkComponents] = useState<ReactNode[]>([]);
 
   const handleCustomizeLink = () => {
     setShowLinks(true);
@@ -19,19 +17,21 @@ const Links = () => {
 
   return (
     <>
-      <div className="text-wrapper">
-        <h1>Customize your links</h1>
-        <p>
-          Add/edit/remove links below and then share all your profiles with the
-          world!
-        </p>
+      <div className="customize-links">
+        <div className="text-wrapper">
+          <h1>Customize your links</h1>
+          <p>
+            Add/edit/remove links below and then share all your profiles with
+            the world!
+          </p>
+        </div>
+        <Button
+          text="+ Add new link"
+          className="secondary"
+          type="button"
+          onClick={handleCustomizeLink}
+        />
       </div>
-      <Button
-        text="+ Add new link"
-        className="secondary"
-        type="button"
-        onClick={handleCustomizeLink}
-      />
       {!showLinks ? <GettingStarted /> : linkComponents}
     </>
   );

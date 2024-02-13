@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactElement } from "react";
 
 interface ButtonProps {
   text: string;
@@ -6,12 +6,13 @@ interface ButtonProps {
   className: "primary" | "secondary";
   disabled?: boolean;
   type: "submit" | "button";
+  Image: ReactElement | null;
 }
 
-const Button: FC<ButtonProps> = ({ text, onClick, className, type }) => {
+const Button: FC<ButtonProps> = ({ text, onClick, className, type, Image }) => {
   return (
     <button type={type} className={className} onClick={onClick}>
-      {text}
+      {Image ? Image : text}
     </button>
   );
 };

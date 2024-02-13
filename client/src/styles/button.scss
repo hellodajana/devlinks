@@ -27,6 +27,10 @@
   font-size: 16px;
   cursor: pointer;
 
+  @include phone {
+    padding: 11px 16px;
+  }
+
   &:active,
   &:hover {
     background: $light-lavander;
@@ -53,8 +57,18 @@
     color: $purple;
   }
 
-  &:active {
+  &.active {
     background-color: $light-lavander;
     color: $purple;
+
+    svg {
+      fill: $purple;
+    }
+  }
+
+  svg {
+    fill: $gray;
+    width: 16px;
+    height: 16px;
   }
 }

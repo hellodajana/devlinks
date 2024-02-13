@@ -3,9 +3,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 16px 16px 24px;
-  margin-bottom: 2rem;
   border-radius: 12px;
   background-color: $white;
+  margin: 24px;
+
+  @include phone {
+    margin: 0 0 16px 0;
+  }
 }
 
 .small-button-wrapper {
@@ -16,4 +20,8 @@
 
 .main-margin {
   margin: 24px;
+
+  @include phone {
+    margin: 16px;
+  }
 }

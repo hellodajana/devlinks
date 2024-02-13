@@ -27,6 +27,10 @@ body {
 h1 {
   font-size: 32px;
   font-weight: 700;
+
+  @include phone {
+    font-size: 24px;
+  }
 }
 
 h2 {
@@ -68,7 +72,20 @@ p {
 }
 
 .logo {
+  svg {
+    width: 146px;
+    height: 32px;
+  }
   align-self: center;
+
+  @include phone {
+    width: 50px;
+
+    svg {
+      width: 27px;
+      height: auto;
+    }
+  }
 }
 
 .light-text {
@@ -81,6 +98,10 @@ p {
   align-items: center;
   justify-content: center;
   gap: 4px;
+
+  @include phone {
+    flex-direction: column;
+  }
 }
 
 .navigate-button {
