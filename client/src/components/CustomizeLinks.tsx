@@ -24,7 +24,7 @@ const CustomizeLinks: FC<CustomizeLinksProps> = ({ key, linkNumber }) => {
     <>
       <div className="links" key={key}>
         <div className="links__header">
-          <span className="column-container">
+          <span className="row-container">
             <DragAndDrop />
             <h2>Link # {linkNumber}</h2>
           </span>

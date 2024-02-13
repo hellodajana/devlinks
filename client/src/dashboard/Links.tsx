@@ -36,7 +36,9 @@ const Links = () => {
           Image={null}
         />
       </div>
-      {!showLinks ? <GettingStarted /> : linkComponents}
+      <div className="column-container">
+        {!showLinks ? <GettingStarted /> : linkComponents}
+      </div>
     </>
   );
 };

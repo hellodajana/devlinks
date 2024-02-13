@@ -98,7 +98,7 @@ p {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 1rem;
 
   @include phone {
     flex-direction: column;
@@ -124,6 +124,7 @@ p {
 
 .column-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
