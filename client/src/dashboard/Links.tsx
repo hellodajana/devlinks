@@ -11,7 +11,10 @@ const Links = () => {
     setShowLinks(true);
     setLinkComponents((prevComponents: ReactNode[]) => [
       ...prevComponents,
-      <CustomizeLinks key={prevComponents.length} />,
+      <CustomizeLinks
+        key={prevComponents.length}
+        linkNumber={prevComponents.length + 1}
+      />,
     ]);
   };
 

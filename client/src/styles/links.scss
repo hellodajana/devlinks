@@ -1,0 +1,12 @@
+.links {
+  background-color: $light-gray;
+  padding: 1rem;
+  border-radius: 12px;
+  color: $gray;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

@@ -8,6 +8,7 @@
 @import "styles/navbar";
 @import "styles/home";
 @import "styles/gettingstarted";
+@import "styles/links";
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap");
 
 * {
@@ -119,4 +120,11 @@ p {
 
 .pointer {
   cursor: pointer;
+}
+
+.column-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
