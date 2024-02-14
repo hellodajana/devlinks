@@ -22,8 +22,9 @@ const Login = () => {
       return;
     }
     try {
-      await authservice.login(email, password);
+      const response = await authservice.login(email, password);
       setSuccess(true);
+      localStorage.setItem("token", response.data.authentication.sessionToken);
     } catch (error) {
       setLoginFailed("Please try again");
     }

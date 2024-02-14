@@ -1,11 +1,17 @@
-import React, { useState, ReactNode, ReactElement } from "react";
+import React, { useState, ReactNode, ReactElement, FC } from "react";
 import Button from "../elements/Button";
 import GettingStarted from "../components/GettingStarted";
 import CustomizeLinks from "../components/CustomizeLinks";
 
 let uniqueIdCounter = 0;
 
-const Links = () => {
+interface LinksProps {
+  linkValue: string;
+  setLinkValue: (value: string) => void;
+  linkError: string;
+}
+
+const Links: FC<LinksProps> = ({ linkValue, setLinkValue, linkError }) => {
   const [showLinks, setShowLinks] = useState<boolean>(false);
   const [linkComponents, setLinkComponents] = useState<ReactNode[]>([]);
 
@@ -28,6 +34,9 @@ const Links = () => {
         uniqueKey={newKey}
         linkNumber={prevComponents.length + 1}
         onRemove={handleRemoveLink}
+        linkValue={linkValue}
+        setLinkValue={setLinkValue}
+        linkError={linkError}
       />,
     ]);
   };

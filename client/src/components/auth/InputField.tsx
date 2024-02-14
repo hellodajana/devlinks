@@ -39,7 +39,6 @@ const InputField: FC<InputFieldProps> = ({
         error={error}
         image={image}
       />
-      {error && <div className="error-message">{error}</div>}
     </div>
   );
 };

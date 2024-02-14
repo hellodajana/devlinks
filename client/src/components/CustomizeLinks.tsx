@@ -11,16 +11,21 @@ interface CustomizeLinksProps {
   uniqueKey: number;
   linkNumber: number;
   onRemove: (key: number) => void;
+  linkValue: string;
+  setLinkValue: (value: string) => void;
+  linkError: string;
 }
 
 const CustomizeLinks: FC<CustomizeLinksProps> = ({
   uniqueKey,
   linkNumber,
   onRemove,
+  linkValue,
+  setLinkValue,
+  linkError,
 }) => {
   const [selectedDropdownItem, setSelectedDropdownItem] =
     useState<DropdownOption | null>(null);
-  const [linkValue, setLinkValue] = useState("");
 
   const handleSelect = (item: DropdownOption) => {
     setSelectedDropdownItem(item);
@@ -68,7 +73,7 @@ const CustomizeLinks: FC<CustomizeLinksProps> = ({
               : "https://github.com/hellodajana"
           }
           name="password"
-          error={""}
+          error={linkError}
           image={<Links />}
         />
       </div>
