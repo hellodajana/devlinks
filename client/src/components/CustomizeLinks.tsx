@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-// import ArrowDown from "../assets/icon-chevron-down.svg?react";
 import Links from "../assets/icon-links-header.svg?react";
 import DragAndDrop from "../assets/icon-drag-and-drop.svg?react";
 import Button from "../elements/Button";
@@ -9,20 +8,32 @@ import dropdownOne from "../helpers/dropdownFields";
 import { DropdownOption } from "../types/types";
 
 interface CustomizeLinksProps {
-  key: number;
+  uniqueKey: number;
   linkNumber: number;
+  onRemove: (key: number) => void;
 }
 
-const CustomizeLinks: FC<CustomizeLinksProps> = ({ key, linkNumber }) => {
+const CustomizeLinks: FC<CustomizeLinksProps> = ({
+  uniqueKey,
+  linkNumber,
+  onRemove,
+}) => {
   const [selectedDropdownItem, setSelectedDropdownItem] =
     useState<DropdownOption | null>(null);
+  const [linkValue, setLinkValue] = useState("");
 
   const handleSelect = (item: DropdownOption) => {
     setSelectedDropdownItem(item);
+    setLinkValue(item.link);
   };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLinkValue(e.target.value);
+  };
+
   return (
     <>
-      <div className="links" key={key}>
+      <div className="links" key={uniqueKey}>
         <div className="links__header">
           <span className="row-container">
             <DragAndDrop />
@@ -33,6 +44,7 @@ const CustomizeLinks: FC<CustomizeLinksProps> = ({ key, linkNumber }) => {
             className="text-btn"
             type="button"
             Image={null}
+            onClick={() => onRemove(uniqueKey)}
           />
         </div>
         <span>
@@ -48,9 +60,13 @@ const CustomizeLinks: FC<CustomizeLinksProps> = ({ key, linkNumber }) => {
         <InputField
           label="Link"
           type="text"
-          value={""}
-          onChange={() => console.log("Hello")}
-          placeholder="https://github.com/hellodajana"
+          value={linkValue}
+          onChange={handleChange}
+          placeholder={
+            selectedDropdownItem
+              ? selectedDropdownItem.link
+              : "https://github.com/hellodajana"
+          }
           name="password"
           error={""}
           image={<Links />}

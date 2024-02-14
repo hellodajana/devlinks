@@ -1,19 +1,33 @@
-import { useState, ReactNode } from "react";
+import React, { useState, ReactNode, ReactElement } from "react";
 import Button from "../elements/Button";
 import GettingStarted from "../components/GettingStarted";
 import CustomizeLinks from "../components/CustomizeLinks";
+
+let uniqueIdCounter = 0;
 
 const Links = () => {
   const [showLinks, setShowLinks] = useState<boolean>(false);
   const [linkComponents, setLinkComponents] = useState<ReactNode[]>([]);
 
+  const handleRemoveLink = (uniqueKeyToRemove: number) => {
+    setLinkComponents((prevComponents) =>
+      prevComponents.filter(
+        (component): component is ReactElement =>
+          React.isValidElement(component) &&
+          component.props.uniqueKey !== uniqueKeyToRemove
+      )
+    );
+  };
+
   const handleCustomizeLink = () => {
+    const newKey = ++uniqueIdCounter;
     setShowLinks(true);
     setLinkComponents((prevComponents: ReactNode[]) => [
       ...prevComponents,
       <CustomizeLinks
-        key={prevComponents.length}
+        uniqueKey={newKey}
         linkNumber={prevComponents.length + 1}
+        onRemove={handleRemoveLink}
       />,
     ]);
   };
@@ -36,7 +50,7 @@ const Links = () => {
           Image={null}
         />
       </div>
-      <div className="column-container">
+      <div className="links-wrapper">
         {!showLinks ? <GettingStarted /> : linkComponents}
       </div>
     </>

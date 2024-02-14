@@ -7,10 +7,10 @@ import Youtube from "../assets/icon-youtube.svg"
 import { DropdownOption } from "../types/types";
 
 const dropdownOne: DropdownOption[] = [
-    {image: Github , name: "Github"},
-    {image: Twitter , name: "Twitter"},
-    {image: Linkedin, name: "Linkedin"},
-    {image: Youtube, name: "Youtube"},
+    {image: Github , name: "Github", link: "https://github.com/"},
+    {image: Twitter , name: "Twitter", link: "https://twitter.com/"},
+    {image: Linkedin, name: "Linkedin", link: "https://www.linkedin.com/in/"},
+    {image: Youtube, name: "Youtube", link: "https://www.youtube.com/"},
 ];
 
 export default dropdownOne;
