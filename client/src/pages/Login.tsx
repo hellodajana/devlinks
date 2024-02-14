@@ -1,4 +1,4 @@
-import { useState, FormEvent, useEffect } from "react";
+import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import authservice from "../services/authservice";
 import Mail from "../assets/icon-email.svg";
@@ -10,7 +10,6 @@ import NavigationButton from "../components/auth/NavigationButton";
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [success, setSuccess] = useState<boolean>(false);
   const [emailFailed, setEmailFailed] = useState<string>("");
   const [loginFailed, setLoginFailed] = useState<string>("");
   const navigate = useNavigate();
@@ -23,18 +22,12 @@ const Login = () => {
     }
     try {
       const response = await authservice.login(email, password);
-      setSuccess(true);
       localStorage.setItem("token", response.data.authentication.sessionToken);
+      navigate("/");
     } catch (error) {
       setLoginFailed("Please try again");
     }
   };
-
-  useEffect(() => {
-    if (success) {
-      navigate("/");
-    }
-  }, [success, navigate]);
 
   return (
     <div className="auth-container">
