@@ -1,44 +1,66 @@
-import React, { useState, ReactNode, ReactElement, FC } from "react";
+import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Button from "../elements/Button";
-import GettingStarted from "../components/GettingStarted";
 import CustomizeLinks from "../components/CustomizeLinks";
-
-let uniqueIdCounter = 0;
+import GettingStarted from "../components/GettingStarted";
+import { CustomLink } from "../types/types";
+import dropdownOptions from "../helpers/dropdownFields";
+import linkservice from "../services/linkservice";
 
 interface LinksProps {
-  linkValue: string;
-  setLinkValue: (value: string) => void;
-  linkError: string;
+  showLinks: boolean;
+  setShowLinks: (value: boolean) => void;
 }
 
-const Links: FC<LinksProps> = ({ linkValue, setLinkValue, linkError }) => {
-  const [showLinks, setShowLinks] = useState<boolean>(false);
-  const [linkComponents, setLinkComponents] = useState<ReactNode[]>([]);
+const Links: React.FC<LinksProps> = ({ showLinks, setShowLinks }) => {
+  const [links, setLinks] = useState<CustomLink[]>([]);
 
-  const handleRemoveLink = (uniqueKeyToRemove: number) => {
-    setLinkComponents((prevComponents) =>
-      prevComponents.filter(
-        (component): component is ReactElement =>
-          React.isValidElement(component) &&
-          component.props.uniqueKey !== uniqueKeyToRemove
-      )
-    );
+  const addLink = () => {
+    const newLink: CustomLink = {
+      id: uuidv4(),
+      platform: dropdownOptions[0].name,
+      link: dropdownOptions[0].link,
+    };
+    setLinks([...links, newLink]);
+    setShowLinks(true);
   };
 
-  const handleCustomizeLink = () => {
-    const newKey = ++uniqueIdCounter;
-    setShowLinks(true);
-    setLinkComponents((prevComponents: ReactNode[]) => [
-      ...prevComponents,
-      <CustomizeLinks
-        uniqueKey={newKey}
-        linkNumber={prevComponents.length + 1}
-        onRemove={handleRemoveLink}
-        linkValue={linkValue}
-        setLinkValue={setLinkValue}
-        linkError={linkError}
-      />,
-    ]);
+  const updateLink = (id: string, updatedLink: CustomLink) => {
+    setLinks(links.map((link) => (link.id === id ? updatedLink : link)));
+  };
+
+  const removeLink = (id: string) => {
+    setLinks(links.filter((link) => link.id !== id));
+  };
+
+  const handleSubmit = async () => {
+    console.log("Clicked");
+    const validLinks = links.filter((link) => {
+      console;
+      if (link.link.trim() === "") {
+        return false;
+      }
+
+      const platformPrefix = dropdownOptions.find(
+        (item) => item.name === link.platform
+      )?.link;
+      return platformPrefix && link.link.startsWith(platformPrefix);
+    });
+
+    if (validLinks.length === 0) {
+      console.log("No valid links to submit.");
+      return;
+    }
+
+    const promises = validLinks.map((link) => linkservice.createLink(link));
+
+    try {
+      console.log("Trying");
+      const responses = await Promise.all(promises);
+      console.log("All links submitted successfully", responses);
+    } catch (error) {
+      console.error("Error submitting links", error);
+    }
   };
 
   return (
@@ -55,13 +77,38 @@ const Links: FC<LinksProps> = ({ linkValue, setLinkValue, linkError }) => {
           text="+ Add new link"
           className="secondary"
           type="button"
-          onClick={handleCustomizeLink}
+          onClick={addLink}
           Image={null}
         />
       </div>
-      <div className="links-wrapper">
-        {!showLinks ? <GettingStarted /> : linkComponents}
-      </div>
+      {links.length === 0 ? (
+        <GettingStarted />
+      ) : (
+        <div className="links-wrapper">
+          {links.map((link, index) => {
+            return (
+              <CustomizeLinks
+                linkNumber={index + 1}
+                link={link}
+                updateLink={updateLink}
+                removeLink={removeLink}
+              />
+            );
+          })}
+        </div>
+      )}
+      {showLinks && (
+        <div className="save-btn">
+          <hr className="breakpoint" />
+          <Button
+            text="Save"
+            className="primary"
+            type="button"
+            Image={null}
+            onClick={handleSubmit}
+          />
+        </div>
+      )}
     </>
   );
 };

@@ -19,7 +19,24 @@
   gap: 1rem;
   height: 440px;
   width: 100%;
-  top: 0;
-  left: 0;
   overflow-y: auto;
+}
+
+.save-btn {
+  position: relative;
+
+  .breakpoint {
+    margin: 10px 0;
+  }
+
+  & button {
+    position: absolute;
+    right: 0;
+    margin: auto;
+    width: 20%;
+    @include phone {
+      width: 100%;
+      margin: 0;
+    }
+  }
 }
