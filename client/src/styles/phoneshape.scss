@@ -96,9 +96,37 @@ $notch-height: 50px;
     gap: 20px;
 
     &__items {
-      height: 44px; // Adjust height as necessary
+      height: 44px;
       border-radius: 8px;
       background: $phone-item;
+    }
+
+    .saved_items {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0 10px;
+
+      .gap {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+    }
+
+    .Github {
+      background-color: black;
+      color: white;
+    }
+
+    .Youtube {
+      background-color: #ee3939;
+      color: white;
+    }
+
+    .svg {
+      fill: white;
     }
   }
 }

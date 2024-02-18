@@ -2,6 +2,7 @@ import express from 'express';
 import { deleteLinkById, getLinks, updateLinkById, createLink } from '../db/links';
 
 export const getAllLinks = async (req: express.Request, res: express.Response) => {
+  console.log("Received link get request", req.body);
   try {
     const links = await getLinks();
 
@@ -13,7 +14,6 @@ export const getAllLinks = async (req: express.Request, res: express.Response) =
 };
 
 export const createNewLink = async (req: express.Request, res: express.Response) => {
-  console.log("Received link creation request", req.body);
     try {
         const savedLink = await createLink( req.body);
         res.json(savedLink);

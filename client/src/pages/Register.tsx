@@ -84,7 +84,12 @@ const Register = () => {
           image={<img src={Password} alt="password" />}
         />
         <p>Password must contain at least 8 characters.</p>
-        <Button type="submit" text="Create new account" className="primary" />
+        <Button
+          type="submit"
+          text="Create new account"
+          className="primary"
+          Image={null}
+        />
       </form>
       <NavigationButton
         questionText="Already have an account? "

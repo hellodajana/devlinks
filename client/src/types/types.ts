@@ -10,3 +10,7 @@ export interface DropdownOption {
     link: string;
   }
   
+
+  export interface Link {
+    link: CustomLink
+  }
